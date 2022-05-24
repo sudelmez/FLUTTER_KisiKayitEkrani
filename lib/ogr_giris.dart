@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'controller.dart';
 
 class ogr_giris extends StatefulWidget {
   late bool command;
@@ -16,15 +15,7 @@ class _ogr_girisState extends State<ogr_giris> {
   final _controller = TextEditingController();
   final _controller2 = TextEditingController();
 
-  void _submit() {
-    if (_errorText == null && _errorText2 == null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => secondpage()),
-      );
-    }
-    return null;
-  }
+  void _submit() {}
 
   String? get _errorText {
     final text = _controller.value.text;
@@ -83,7 +74,10 @@ class _ogr_girisState extends State<ogr_giris> {
         actions: [
           TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                if (_errorText == null && _errorText2 == null) {
+                  Navigator.of(context).pop();
+                }
+                return null;
               },
               child: Text('KAYDET'))
         ],
